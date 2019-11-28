@@ -40,4 +40,34 @@ package Chapter1_Arrays_and_strings;
         return duplicated.toString().substring(0,currentInd);
     }
 
+    public void RemoveDuplicated1(char[] duplicated) {
+        int currentInd=1;
+        boolean unique[]= new boolean[256];
+        for (int i=1;i<duplicated.length;i++) {
+            int j;
+            for( j=0;j<currentInd;j++){
+            if(duplicated[i]==duplicated[j]) break;
+        }
+            if(j==currentInd) duplicated[currentInd++]=duplicated[i];
+        }
+        //System.out.println(duplicated.);
+        duplicated[currentInd]=' ';
+        System.out.print(duplicated);
+    }
+
+    public void RemoveDuplicated2(char[] duplicated) {
+        int currentInd=1;
+        boolean unique[]= new boolean[256];
+
+        for (int i=1;i<duplicated.length;i++) {
+            int j;
+            for( j=0;j<currentInd;j++){
+                if(duplicated[i]==duplicated[j]) break;
+            }
+            if(j==currentInd) duplicated[currentInd++]=duplicated[i];
+        }
+        //System.out.println(duplicated.);
+        duplicated[currentInd]=' ';
+        System.out.print(duplicated);
+    }
 }
