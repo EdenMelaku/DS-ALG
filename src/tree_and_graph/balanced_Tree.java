@@ -27,5 +27,5 @@ public class balanced_Tree extends Node {
      find_depth(0,node);
      return (max_depth-min_depth)<=1;
     }
-    
+
 }

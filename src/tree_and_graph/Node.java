@@ -3,10 +3,12 @@ package tree_and_graph;
 import java.util.ArrayList;
 
 public class Node {
-    private ArrayList<Node> children;
+     ArrayList<Node> children;
+     int data;
 
-    public Node(ArrayList<Node> children) {
+    public Node(int data,ArrayList<Node> children) {
         this.children = children;
+        this.data=data;
     }
 
     public void add_chilld(Node child){
