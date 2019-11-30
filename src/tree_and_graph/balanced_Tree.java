@@ -16,8 +16,8 @@ public class balanced_Tree extends Node {
     public void find_depth(int depth, Node node){
         if(node.children!=null){
             depth++;
-            for(int i=0;i<node.children.size();i++){
-                find_depth(depth,node.children.get(i));
+            for(Node n:node.children){
+                find_depth(depth,n);
             }
         }
         if(depth<min_depth) min_depth=depth;
