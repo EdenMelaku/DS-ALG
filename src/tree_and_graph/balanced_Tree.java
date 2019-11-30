@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 public class balanced_Tree extends Node {
     Node node;
-    public balanced_Tree(ArrayList<Node> children) {
-        super(children);
+    public balanced_Tree(ArrayList<Node> children, int data) {
+        super(data,children);
     }
     int min_depth=0;
     int max_depth=0;
