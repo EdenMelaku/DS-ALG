@@ -35,6 +35,8 @@ public class Graph2 {
         graph.addVertice("bety");
         graph.addVertice("firee");
         graph.addVertice("ayniye");
+        graph.addVertice("hanna");
+        graph.addVertice("bubu");
 
         graph.addEdge("eden", "bety");
         graph.addEdge("eden", "hilina");
@@ -42,6 +44,8 @@ public class Graph2 {
         graph.addEdge("hilina", "ayniye");
         graph.addEdge("bety", "firee");
         graph.addEdge("hilina", "firee");
+        graph.addEdge("hanna", "bubu");
+        graph.addEdge("bety", "bubu");
 
         return graph;
     }
