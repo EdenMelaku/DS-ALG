@@ -54,6 +54,7 @@ public class Graph {
         graph.addVertex("firee");
         graph.addVertex("ayniye");
 
+
          graph.adjVertices.keySet().stream().map(vers->vers.label).forEach(System.out::println);
          System.out.println("////////////////////////////");
          graph.adjVertices.get(new Vertex("eden")).stream().map(v -> v.label).forEach(System.out::println);
@@ -62,8 +63,9 @@ public class Graph {
         graph.addEdge("eden", "hilina");
         graph.addEdge("bety", "ayniye");
         graph.addEdge("hilina", "ayniye");
-        graph.addEdge("bety", "firee");
-        graph.addEdge("hilina", "firee");
+         graph.addEdge("bety", "firee");
+         graph.addEdge("hilina", "firee");
+
 
         return graph;
 
