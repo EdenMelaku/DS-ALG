@@ -37,15 +37,19 @@ Output: N = 10001010100
         return i&mask;
     }
     // this updates a bit
- public int updateBit(int i,int j, boolean set){
-  int value=(set)?1:0;
-  int mask=~(1<<j);
-  int clear=mask&i;
-  return clear|(1<<value);
+   public int updateBit(int i,int j, boolean set){
+       int value=(set)?1:0;
+       int mask=~(1<<j);
+       int clear=mask&i;
+       return clear|(1<<value);
 
 }
 
-
+    int isPowerOfTwo(int x){
+        int n= (x & (x - 1));
+        if(x==0) return x;
+        return  n;
+    }
     public static void main(String...args){
         System.out.println(updateBits(90,20,2,6));
 }
