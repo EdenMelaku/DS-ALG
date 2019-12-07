@@ -50,9 +50,19 @@ Output: N = 10001010100
         if(x==0) return x;
         return  n;
     }
+
+    int countOne(int x){
+        int count=0;
+        while (x!=0){
+            x=x&(x-1);
+            count++;
+        }
+        return count;
+    }
     public static void main(String...args){
         System.out.println(updateBits(90,20,2,6));
 }
+
 
 
 }
