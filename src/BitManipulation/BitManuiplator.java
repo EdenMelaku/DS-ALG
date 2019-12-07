@@ -66,8 +66,22 @@ Output: N = 10001010100
         return x==~(0);
     }
 
+    static void  possibleSubsets(char A[], int N)
+    {
+        for(int i = 0;i < (1 << N); ++i)
+        {
+            for(int j = 0;j < N;++j)
+                if((i & (1 << j))!=0)
+                    System.out.print( A[j] +" ");
+            System.out.println();
+        }
+    }
+
     public static void main(String...args){
         System.out.println(updateBits(90,20,2,6));
+
+        char[] A={'A','B','C','e','k'};
+        possibleSubsets(A,5);
 }
 
 
