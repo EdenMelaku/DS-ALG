@@ -59,6 +59,13 @@ Output: N = 10001010100
         }
         return count;
     }
+
+    boolean isSet(int n, int i){
+        int mask=~(1<<i);
+        int x=n|mask;
+        return x==~(0);
+    }
+
     public static void main(String...args){
         System.out.println(updateBits(90,20,2,6));
 }
