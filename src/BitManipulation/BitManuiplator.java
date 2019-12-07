@@ -28,12 +28,22 @@ Output: N = 10001010100
          }
 
          // this method sets the jth bit of the number i to 1
-     public int setBit1(int i, int j){
+     public int setBit(int i, int j){
         return (i|(1<<j));
      }
+// this method clears a bit (sets the jth bit of the number i to 0)
+    public int clearBit(int i,int j){
+        int mask=~(1<<j);
+        return i&mask;
+    }
+    // this updates a bit
+ public int updateBit(int i,int j, boolean set){
+  int value=(set)?1:0;
+  int mask=~(1<<j);
+  int clear=mask&i;
+  return clear|(1<<value);
 
- 
-
+}
 
 
     public static void main(String...args){
