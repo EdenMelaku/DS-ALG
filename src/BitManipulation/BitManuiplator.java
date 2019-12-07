@@ -77,11 +77,26 @@ Output: N = 10001010100
         }
     }
 
+    static int findLargestPowerOf2InRange(int N){
+        //changing all right side bits to 1.
+        N = N| (N>>1);
+        N = N| (N>>2);
+        N = N| (N>>4);
+        N = N| (N>>8);
+
+
+        //as now the number is 2 * x-1, where x is required answer, so adding 1 and dividing it by
+
+        return (N+1)>>1;
+    }
+
     public static void main(String...args){
         System.out.println(updateBits(90,20,2,6));
 
         char[] A={'A','B','C','e','k'};
         possibleSubsets(A,5);
+
+        System.out.println(findLargestPowerOf2InRange(6));
 }
 
 
