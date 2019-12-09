@@ -1,5 +1,9 @@
 package HardProblems;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class Problems {
 
     /*
@@ -36,10 +40,16 @@ element must have equal probability of being chosen.
  */
 
    public int[] fetchRand(int []from, int m) {
-    
-
+       int randElements[]= new int[m];
+    if(m>from.length) return null;
+    for(int i=0;i<m;i++){
+        int rand=(int) (Math.random()*(from.length-i)) +i;
+        randElements[i]=from[rand];
+        from[rand]=from[i];
+        from[i]=randElements[i];
 
    }
+    return randElements;
 
 
 }
