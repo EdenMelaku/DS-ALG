@@ -66,8 +66,9 @@ Output: N = 10001010100
         return x==~(0);
     }
 
-    static void  possibleSubsets(char A[], int N)
+    static void  possibleSubsets(char A[])
     {
+        int N=A.length;
         for(int i = 0;i < (1 << N); ++i)
         {
             for(int j = 0;j < N;++j)
@@ -93,10 +94,11 @@ Output: N = 10001010100
     public static void main(String...args){
         System.out.println(updateBits(90,20,2,6));
 
-        char[] A={'A','B','C','e','k'};
-        possibleSubsets(A,5);
+        char[] A={'A','B','C'};
+        possibleSubsets(A);
 
         System.out.println(findLargestPowerOf2InRange(6));
+        System.out.println(6>>1);
 }
 
 
