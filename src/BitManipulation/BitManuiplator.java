@@ -109,9 +109,22 @@ Output: N = 10001010100
         System.out.println(findLargestPowerOf2InRange(6));
         System.out.println(6>>1);
         int[]nums={1,2,3,5,6};
-        System.out.println(missingInteger(nums));
+        int[]num={1,3,4};
+        int[]numm={2,6,1,3,4};
+        System.out.println(missingInteger(numm));
+        System.out.println(missingNumber(numm));
 }
 
+/*
+another solution from the web
+ */
 
-
+    static int missingNumber(int[] nums) {
+        int ret = 0;
+        for(int i = 0; i < nums.length; i++) {
+            ret ^= i;
+            ret ^= nums[i];
+        }
+        return ret^=nums.length;
+    }
 }
