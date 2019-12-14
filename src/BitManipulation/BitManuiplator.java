@@ -91,6 +91,15 @@ Output: N = 10001010100
         return (N+1)>>1;
     }
 
+    public static int missingInteger(int[]A){
+        for(int i=0;i<A.length;i++) {
+            if(((A[i]+1)^(A[i+1]))!=0){
+                return A[i]+1;
+            }
+        }
+        return A.length;
+    }
+
     public static void main(String...args){
         System.out.println(updateBits(90,20,2,6));
 
@@ -99,6 +108,8 @@ Output: N = 10001010100
 
         System.out.println(findLargestPowerOf2InRange(6));
         System.out.println(6>>1);
+        int[]nums={1,2,3,5,6};
+        System.out.println(missingInteger(nums));
 }
 
 
