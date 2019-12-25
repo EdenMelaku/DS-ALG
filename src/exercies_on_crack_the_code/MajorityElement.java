@@ -8,7 +8,7 @@ Majority Element: A majority element in an array A[] of size n is an element tha
 such element).
  */
 public class MajorityElement {
-   
+
     public static int getMajorityElement(int[]A){
         int majority=0;
        int[]B=new int[1000];
