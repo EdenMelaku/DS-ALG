@@ -14,7 +14,7 @@ class Nodee{
     class BinaryTree {
         Nodee first, middle, last, prev;
 
-        Void correctBSTUtil(Nodee root) {
+        void correctBSTUtil(Nodee root) {
             if (root != null) {
                 correctBSTUtil(root.left);
 
@@ -54,7 +54,7 @@ class Nodee{
             if (node == null) return;
 
             printInOrder(node.left);
-            System.out.println(" " + node.data);
+            System.out.print(" " + node.data);
             printInOrder(node.right);
         }
 
@@ -76,6 +76,8 @@ class Nodee{
 
             System.out.println("\n indorder traversal of the fixed tree ");
             tree.printInOrder(root);
+            System.out.println();
+
 
 
 
