@@ -1,8 +1,6 @@
 package tree_and_graph;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /*
 Given a sorted (increasing order) array, write an algorithm to create a binary tree with
@@ -13,7 +11,8 @@ public class BST {
         Node left;
         Node right;
         int data;
-
+       public Node(){
+            ;}
         Node(int data) {
             this.data = data;
         }
@@ -86,4 +85,45 @@ to print all paths which sum up to that value. Note that it can be any path in t
        }
 
 
-}
+       Node leastCommonAncestor(tree_and_graph.Node root, tree_and_graph.Node node1, tree_and_graph.Node node2) {
+           Queue<tree_and_graph.Node> queue=new LinkedList<>();
+           Set<tree_and_graph.Node> visited=new LinkedHashSet<>();
+           queue.add(root);
+           while(!queue.isEmpty()) {
+               tree_and_graph.Node n=queue.poll();
+               if(!visited.contains(n)&&){
+
+               }
+           }
+       }
+    class  CommonAncestor extends Node {
+        int depth;
+    }
+    CommonAncestor covers(Node root, Node node1, Node node2, int foo,CommonAncestor LCA,int depth){
+        if(root!=null) {
+            depth++;
+            if (root == node1 || root == node2) {
+                foo++;
+                if (foo == 2) {
+                    if (depth > LCA.depth) {
+                        LCA = (CommonAncestor) root;
+                        LCA.depth = depth;
+                    }
+
+                }
+            }
+            CommonAncestor left=covers(root.left, node1, node2, foo, LCA, depth);
+            CommonAncestor right= covers(root.right, node1, node2, foo, LCA, depth);
+
+            return  left.depth >right.depth?left:right;
+        }
+       return LCA;
+       }
+
+
+       
+
+    }
+
+
+

@@ -1,6 +1,6 @@
 package tree_and_graph;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Node {
      ArrayList<Node> children;
@@ -14,4 +14,6 @@ public class Node {
     public void add_chilld(Node child){
         children.add(child);
     }
+
+
 }
