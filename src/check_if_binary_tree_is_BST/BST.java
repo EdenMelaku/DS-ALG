@@ -43,6 +43,9 @@ public class BST {
     }
 }
 
+
+
+
 class client {
     BST left;
     BST right;
@@ -56,6 +59,7 @@ class client {
     }
 
     static ArrayList<BST> leafnodes=new ArrayList<BST>();
+
     public static void returnLeafNodes(BST tree){
 
         if(tree.getLeft()!=null){

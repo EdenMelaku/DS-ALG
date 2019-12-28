@@ -91,37 +91,88 @@ to print all paths which sum up to that value. Note that it can be any path in t
            queue.add(root);
            while(!queue.isEmpty()) {
                tree_and_graph.Node n=queue.poll();
-               if(!visited.contains(n)&&){
+               //if(!visited.contains(n)&&){
 
-               }
+               //}
            }
+           return null;
        }
     class  CommonAncestor extends Node {
         int depth;
     }
-    CommonAncestor covers(Node root, Node node1, Node node2, int foo,CommonAncestor LCA,int depth){
+    CommonAncestor coverss(Node root, Node node1, Node node2, int foo,CommonAncestor LCA,int depth){
         if(root!=null) {
             depth++;
             if (root == node1 || root == node2) {
                 foo++;
                 if (foo == 2) {
                     if (depth > LCA.depth) {
-                        LCA = (CommonAncestor) root;
-                        LCA.depth = depth;
+                        CommonAncestor c = new CommonAncestor();
+                        c.data = root.data;
+                        c.depth = depth;
+                        LCA = c;
                     }
 
                 }
             }
-            CommonAncestor left=covers(root.left, node1, node2, foo, LCA, depth);
-            CommonAncestor right= covers(root.right, node1, node2, foo, LCA, depth);
+            CommonAncestor left = coverss(root.left, node1, node2, foo , LCA, depth);
+            CommonAncestor right = coverss(root.right, node1, node2, foo, LCA, depth);
+            System.out.println("root "+root.data+" LCA "+LCA.data+" foo "+foo);
 
-            return  left.depth >right.depth?left:right;
+            return left.depth > right.depth ? left : right;
         }
        return LCA;
        }
 
 
-       
+       public static void main(String ... args) {
+           BST b=new BST();
+           Node tree=b.new Node(4);
+           Node left_subtree=b.new Node(3);
+           Node right_subtree=b.new Node(8);
+           Node right_subtreeR=b.new Node(10);
+           right_subtreeR.left=b.new Node(9);
+           right_subtreeR.right=b.new Node(19);
+           right_subtree.right=right_subtreeR;
+           Node left_subtreeL=b.new Node(1);
+           left_subtree.left=left_subtreeL;
+           left_subtree.right=b.new Node(2);
+           tree.left=(left_subtree);
+           tree.right=(right_subtree);
+           CommonAncestor c=b.new CommonAncestor();
+           c.data=tree.data;
+           c.depth=0;
+
+           Node a=b.new Node(1);
+           Node y=b.new Node(2);
+           Node d=b.new Node(3);
+           Node e=b.new Node(4);
+           Node f=b.new Node(5);
+           Node g=b.new Node(6);
+           Node h=b.new Node(7);
+           Node i=b.new Node(8);
+           Node z=b.new Node(9);
+           f.left=h;
+           g.right=i;
+           y.left=f;
+           y.right=g;
+           a.right=y;
+           z.left=d;
+           z.right=e;
+           a.left=z;
+           CommonAncestor cb=b.new CommonAncestor();
+           cb.data=a.data;
+           cb.depth=0;
+           CommonAncestor LCA=b.coverss(a,i,f,0,cb,0);
+           System.out.println(LCA.data);
+           CommonAncestor LA=b.coverss(tree,right_subtreeR.left,right_subtreeR,0,c,0);
+           System.out.println(LA.data);
+           System.out.println();
+           System.out.println();
+           System.out.println(b.commonAncestor(a,h,d).data);
+
+
+       }
 
     }
 
