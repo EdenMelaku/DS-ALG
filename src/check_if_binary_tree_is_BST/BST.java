@@ -1,6 +1,7 @@
 package check_if_binary_tree_is_BST;
 
-import java.util.ArrayList;
+import java.io.LineNumberReader;
+import java.util.*;
 
 /*
 a BST(binary search tree is a node based binary tree datastructure which has the following properties
@@ -46,6 +47,7 @@ public class BST {
 
 
 
+
 class client {
     BST left;
     BST right;
@@ -77,6 +79,30 @@ class client {
     }
 
 
+    ArrayList<LinkedList<BST>> getAtEachDepth(BST tree){
+        ArrayList<LinkedList<BST>> items=new ArrayList<>();
+        LinkedList<BST> li=new LinkedList<>();
+        li.add(tree);
+        int level=0;
+        items.add(level,li);
+
+        while(!items.get(level).isEmpty()){
+            LinkedList<BST> lev=new LinkedList<>();
+           for(int i=0;i<items.get(level).size();i++){
+               left=items.get(level).get(i).getLeft();
+               right=items.get(level).get(i).getRight();
+               if(left!=null) lev.add(left);
+               if(right!=null) lev.add(right);
+           }
+           level++;
+            items.add(level,lev);
+
+
+        }
+        return items;
+
+    }
+
 
     public static void main(String... args) {
         BST tree=new BST(4);
@@ -102,15 +128,20 @@ class client {
         BST ta=new BST(9);
         ta.setLeft(new BST(2));
         t.setRight(ta);
-        System.out.println("real BST "+c.is_BST(tree, Integer.MIN_VALUE,Integer.MAX_VALUE));
-        System.out.println("not  BST "+c.is_BST(false_tree,Integer.MIN_VALUE,Integer.MAX_VALUE));
-        System.out.println("new   BST "+c.is_BST(t,Integer.MIN_VALUE,Integer.MAX_VALUE));
+        //System.out.println("real BST "+c.is_BST(tree, Integer.MIN_VALUE,Integer.MAX_VALUE));
+        //System.out.println("not  BST "+c.is_BST(false_tree,Integer.MIN_VALUE,Integer.MAX_VALUE));
+        //System.out.println("new   BST "+c.is_BST(t,Integer.MIN_VALUE,Integer.MAX_VALUE));
 
         //find leaf nodes
 
-        returnLeafNodes(tree);
-        for(int i=0;i<leafnodes.size();i++){
-           // System.out.println(leafnodes.get(i).getKey());
+        //returnLeafNodes(tree);
+        ArrayList<LinkedList<BST>> nodes=c.getAtEachDepth(tree);
+        for(int i=0;i<nodes.size();i++){
+
+            for(int j=0;j<nodes.get(i).size();j++){
+                System.out.print(nodes.get(i).get(j).getKey()+"  ");
+            }
+            System.out.println();
         }
 
 
