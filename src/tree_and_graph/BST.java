@@ -124,10 +124,20 @@ to print all paths which sum up to that value. Note that it can be any path in t
        return LCA;
        }
 
+    public Node getSuccessor(Node n, Node root,Node suc) {
+           //System.out.println("at root "+root.data);
+           if(n.right!=null) return n.right;
+           if(root==null) return null;
+           if(root==n) return suc;
+           if(root.left==n) return root;
+           if(root.data<n.data) return getSuccessor(n,root.right,suc);
+           else return getSuccessor(n,root.left,root);
+
+    }
 
        public static void main(String ... args) {
            BST b=new BST();
-           Node tree=b.new Node(4);
+          /* Node tree=b.new Node(4);
            Node left_subtree=b.new Node(3);
            Node right_subtree=b.new Node(8);
            Node right_subtreeR=b.new Node(10);
@@ -164,13 +174,70 @@ to print all paths which sum up to that value. Note that it can be any path in t
            cb.data=a.data;
            cb.depth=0;
            CommonAncestor LCA=b.coverss(a,i,f,0,cb,0);
-           System.out.println(LCA.data);
+           //System.out.println(LCA.data);
            CommonAncestor LA=b.coverss(tree,right_subtreeR.left,right_subtreeR,0,c,0);
-           System.out.println(LA.data);
-           System.out.println();
-           System.out.println();
-           System.out.println(b.commonAncestor(a,h,d).data);
+           //System.out.println(LA.data);
+           //System.out.println();
+           //System.out.println();
+           //System.out.println(b.commonAncestor(a,h,d).data);
 
+
+
+
+*/
+
+           Node a=b.new Node(7);
+           Node y=b.new Node(5);
+           Node d=b.new Node(3);
+           Node e=b.new Node(2);
+           Node f=b.new Node(1);
+           Node g=b.new Node(4);
+           Node h=b.new Node(6);
+           Node i=b.new Node(13);
+           Node z=b.new Node(10);
+
+           Node a1=b.new Node(8);
+           Node y1=b.new Node(9);
+           Node d1=b.new Node(11);
+           Node e1=b.new Node(12);
+           Node f1=b.new Node(20);
+           Node g1=b.new Node(18);
+           Node h1=b.new Node(14);
+           Node i1=b.new Node(19);
+           Node z1=b.new Node(23);
+
+           Node h2=b.new Node(30);
+           Node i2=b.new Node(24);
+           Node z2=b.new Node(25);
+
+
+           e.left=f;
+           d.left=e;
+           d.right=g;
+           y.left=d;
+           y.right=h;
+
+           a.left=y;
+
+           a1.right=y1;
+           z.left=a1;
+           d1.right=e1;
+           z.right=d1;
+
+           g1.left=h1;
+           g1.right=i1;
+           f1.left=g1;
+           z1.right=i2;
+           z2.left=z1;
+           z2.right=h2;
+           f1.right=z2;
+           i.left=z;
+           i.right=f1;
+           a.right=i;
+
+
+
+           System.out.println(b.getSuccessor(i2,a,null).data);
 
        }
 
