@@ -135,6 +135,28 @@ to print all paths which sum up to that value. Note that it can be any path in t
 
     }
 
+    public Node getSibling(Node root,Node n){
+           ArrayList<LinkedList<Node>> NodesAtEachDepth=new ArrayList<>();
+           int level=0;
+           LinkedList<Node> r=new LinkedList<>();
+           r.add(root);
+           NodesAtEachDepth.add(level,r);
+
+           while(!NodesAtEachDepth.get(level).isEmpty()) {
+               Node prev=new Node();
+               LinkedList<Node> nodes=new LinkedList<>();
+               for(Node node:NodesAtEachDepth.get(level)) {
+                   nodes.add(node.left);
+                   nodes.add(node.right);
+                   if(n==prev) return node;
+                   prev=node;
+               }
+               level++;
+               NodesAtEachDepth.add(level,nodes);
+           }
+           return null;
+    }
+
        public static void main(String ... args) {
            BST b=new BST();
           /* Node tree=b.new Node(4);
@@ -237,8 +259,9 @@ to print all paths which sum up to that value. Note that it can be any path in t
 
 
 
-           System.out.println(b.getSuccessor(i2,a,null).data);
+           //System.out.println(b.getSuccessor(i2,a,null).data);
 
+           System.out.println(b.getSibling(a,h2).data);
        }
 
     }
