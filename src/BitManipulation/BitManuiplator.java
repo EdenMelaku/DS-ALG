@@ -101,7 +101,7 @@ Output: N = 10001010100
     }
 
     public static void main(String...args){
-        System.out.println(updateBits(90,20,2,6));
+       /* System.out.println(updateBits(90,20,2,6));
 
         char[] A={'A','B','C'};
         possibleSubsets(A);
@@ -110,9 +110,13 @@ Output: N = 10001010100
         System.out.println(6>>1);
         int[]nums={1,2,3,5,6};
         int[]num={1,3,4};
-        int[]numm={2,6,1,3,4};
+        int[]numm={2,6,1,3,4};*/
+        int arr[] = {4, 2, 4, 5, 2, 3, 3, 1};
+        int arr1[] = {12, 23, 34, 12, 23, 8};
+/*
         System.out.println(missingInteger(numm));
-        System.out.println(missingNumber(numm));
+        System.out.println(missingNumber(numm));*/
+        printTwoOdd(arr1,arr1.length);
 }
 
 /*
@@ -127,4 +131,42 @@ another solution from the web
         }
         return ret^=nums.length;
     }
+
+    static void printTwoOdd(int arr[], int size)
+    {
+        int xor2 = arr[0]; /* Will hold XOR of two odd occurring elements */
+        int set_bit_no; /* Will have only single set bit of xor2 */
+        int i;
+        int n = size - 2;
+        int x = 0, y = 0;
+/* Get the xor of all elements in arr[]. The xor will basically
+be xor of two odd occurring elements */
+        for(i = 1; i < size; i++)
+            xor2 = xor2 ^ arr[i];
+        System.out.println("xor= "+xor2);
+/* Get one set bit in the xor2. We get rightmost set bit
+in the following line as it is easy to get */
+        set_bit_no = xor2 & ~(xor2-1);
+        System.out.println("set_bit_no= "+set_bit_no);
+
+/* Now divide elements in two sets:
+1) The elements having the corresponding bit as 1.
+2) The elements having the corresponding bit as 0. */
+        for(i = 0; i < size; i++)
+        {
+            /* XOR of first set is finally going to hold one oddoccurring number x */
+            if((arr[i] & set_bit_no)!=0)
+                x = x ^ arr[i];
+/* XOR of second set is finally going to hold the other
+odd occurring number y */
+            else
+                y = y ^ arr[i];
+            System.out.println("x= "+x);
+            System.out.println("y= "+y);
+
+        }
+        System.out.println("\n The two ODD elements are "+ x+" "+ y);
+    }
+    /* Driver program to test above function */
+
 }
