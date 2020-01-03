@@ -59,23 +59,39 @@ public class mainpulator {
         return max_diff;
     }
 
+/*Maximum difference between two elements such that larger element appears after the
+smaller number*/
 
+ static int getMaxDifference(int[] arr) {
+       int min1=0,min2=0,max=1;
+       for (int i=1;i<arr.length;i++) {
+           if(arr[min2]>arr[i]) min2=i;
+           if(arr[max]<arr[i]) {
+               max=i;
+               if(min2<max)   min1=min2;
+               }
+           }
+       //System.out.println(min1+" "+min2+" "+max);
+       return arr[max] - arr[min1];
+   }
 
 //https://www.geeksforgeeks.org/microsoft-interview-experience-set-141-off-campus-online-coding-test-idc/
     public static void main(String ... args){
         int nums[]={2,2,0,4,0,2};
 
 // test array manipulator
-        System.out.println(" ");
+       // System.out.println(" ");
         int manupilated[]=mainpulate(nums);
         for(int i=0;i<manupilated.length;i++){
-            System.out.print(manupilated[i]+" , ");
+           // System.out.print(manupilated[i]+" , ");
         }
-        System.out.println("");
-        System.out.println("FINDING MAXIMUM DIFFERENCE ");
+       // System.out.println("");
+        //System.out.println("FINDING MAXIMUM DIFFERENCE ");
         //test max difference
-        int elems[]={1, 2, 90, 10, 110};
-        System.out.println(maximum_difference(elems));
+        int elems[]={30, 22, 9, 10, 11};
+        //System.out.println(maximum_difference(elems));
+
+        System.out.println(getMaxDifference(elems));
 
     }
 }
