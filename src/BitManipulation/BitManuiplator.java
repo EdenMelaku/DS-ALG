@@ -1,5 +1,10 @@
 package BitManipulation;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Vector;
+
 public class BitManuiplator {
 
     /*
@@ -167,6 +172,18 @@ odd occurring number y */
         }
         System.out.println("\n The two ODD elements are "+ x+" "+ y);
     }
-    /* Driver program to test above function */
 
+    Set<ArrayList<Integer>  > getSubset(int[] arr) {
+        Set<ArrayList<Integer> > subsets=new HashSet<>(1<<(arr.length-1));
+        for (int i=0;i<1<<(arr.length-1);i++) {
+            ArrayList<Integer> set=new ArrayList<>();
+            for(int j=0;j<arr.length;j++){
+                int x=i&j<<1;
+                if(x!=0) {
+                    set.add(i);
+                }
+            }
+        }
+        return subsets;
+    }
 }
