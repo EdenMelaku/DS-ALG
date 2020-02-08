@@ -173,7 +173,7 @@ odd occurring number y */
         System.out.println("\n The two ODD elements are "+ x+" "+ y);
     }
 
-    Set<ArrayList<Integer>  > getSubset(int[] arr) {
+    Set<ArrayList<Integer> > getSubset(int[] arr) {
         Set<ArrayList<Integer> > subsets=new HashSet<>(1<<(arr.length-1));
         for (int i=0;i<1<<(arr.length-1);i++) {
             ArrayList<Integer> set=new ArrayList<>();
@@ -186,4 +186,10 @@ odd occurring number y */
         }
         return subsets;
     }
+
+  /*  Set<ArrayList<Integer> > permutation(int[]arr) {
+
+    }
+
+   */
 }
